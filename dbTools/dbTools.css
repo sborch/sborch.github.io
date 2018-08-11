@@ -1,0 +1,26 @@
+﻿h1        {font-family:verdana,sans-serif; font-size:14pt}
+h2        {font-family:verdana,sans-serif; font-size:11pt}
+h3        {font-family:verdana,sans-serif; font-size:10pt}
+
+body      {font-family:verdana,sans-serif; font-size:10pt}
+
+table     {font-family:verdana,sans-serif; font-size:10pt;}
+
+th        {vertical-align:top; text-align:left; background:whitesmoke}
+th.yellow {vertical-align:top; text-align:left; background:lemonchiffon}
+
+td        {vertical-align:top;}
+td.code   {vertical-align:top;font-family:consolas,courier,monospace;color:teal}
+
+pre       {font-family:consolas,courier,monospace;color:teal}
+
+span.test {color:gray}
+span.code {font-family:consolas,courier,monospace;color=teal}
+
+a:link    {color:blue; text-decoration:none}
+a:visited {color:blue; text-decoration:none}
+a:active  {color:blue; text-decoration:none}
+a:hover   {color:blue; text-decoration:none; background:yellow; }
+
+ul        { margin-left:10; }
+li        { margin-left:0; }

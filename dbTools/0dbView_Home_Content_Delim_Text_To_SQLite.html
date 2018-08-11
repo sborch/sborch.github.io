@@ -2,7 +2,7 @@
   
 <head>
 
-  <titledbView About</title>
+  <title>dbView Import Delimited Text Into SQLite</title>
 
   <link rel="stylesheet" type="text/css" href="dbTools.css">
 
@@ -10,103 +10,13 @@
     
 <body>                                             
 
-<h1>Overview</h1>
-<p>dbView is a query and analysis tool that is intended provide a consistent environment in which to work with different types of databases.  
-I created and maintain dbView to support my day-to-day work and for this reason dbView is continually evolving and changing as my needs change.
-Please see me with any questions and/or for an overview of dbView capabilities.</p>
-Thanks, Steve Borcherding
+<h1>Importing a delimited text file into a SQLite database</h1>
 
-<h1>SQLite database library</h1>
-<p>
-I rely heavily on SQLite (<a target='_blank' href='http://www.sqlite.org'>http://www.sqlite.org</a>) as a versatile database engine for much of the underpinnings 
-of dbView and my related data-related tools. SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
-</p>
-
-<p>
-Note that SQLite uses dynamic typing rather than the static typing we are used to with SQL Server and other traditional RDBMS engines.  
-It’s a bit different but very flexible and can be especially useful for working with text files and ad-hoc data analysis across multiple data sources.
-For this reason you should review the SQLite documentation on datatypes at <a target='_blank' href="https://www.sqlite.org/datatype3.html">https://www.sqlite.org/datatype3.html</a>.
-</p>
- 
-<p>Also if you are interested, I use an ADO.NET provider for SQLite called
-	<a target='_blank' href='http://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki'>System.Data.SQLite</a>.
-	This library allows for easy integration of SQLite functionality into a .NET application.
-</p> 
- 
- 
-<h3>Important Note - Connecting to SQLite Databases</h3>
-<p>If you want the connection to fail if the specified database file does *NOT* exist, then set <span class='code'><strong>FailIfMissing=True</strong></span></p>
-<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-<pre>
-SQLITE:
-;Data Source="C:\Temp\MyDatabase.db"
-;Foreign Keys=True
-;Read Only=False
-;FailIfMissing=True
-</pre>
-</td></tr></table>
-
-<p>Otherwise if you want the connection to always succeed, then set <span class='code'><strong>FailIfMissing=False</strong></span>.
-This will cause a new empty SQLite database file to be automatically created if the specified file does not already exist.</p>
-<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-<pre>SQLITE:
-;Data Source="C:\Temp\MyDatabase.db"
-;Foreign Keys=True
-;Read Only=False
-;FailIfMissing=False
-</pre>
-</td></tr></table>
-
-
-<!-- 
--------------------------------------------------------------------------------
--- Importing and Exporting Data
--------------------------------------------------------------------------------
--->
-
-<h1 id='top'>Importing and Exporting Data</h1>
-
-<h2>exporting data from any supported database</h2>
-<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-1.1 - export data to delimited text file<br>
-1.2 - export data to sql insert script text file<br>
-1.3 - export data to SQLite database<br>
-</td></tr></table>
-
-<h2>importing data into a SQL Server database</h2>
-<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-2.1 - import (buik load) from SQL Server database into a SQL Server database<br>
-2.2 - import from SQLite database into a SQL Server database<br>
-2.3 - import (bulk load) delimited text file into SQL Server database<br>
-</td></tr></table>
-
-<h2>importing data into a SQLite database</h2>
-<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
-<a href='#3.1'>3.1 - import a delimited text file into a SQLite database</a><br>
-3.2 - import a fixed-width text file into a SQLite database<br>
-3.3 - import from SQL Server database into a SQLite database<br>
-3.4 - import from SQLite database into a SQLite database<br>
-</td></tr></table>
-
-<br>
-<br>
-
-<!-- 
--------------------------------------------------------------------------------
--- 3.1 - Importing a delimited text file into a SQLite database
--------------------------------------------------------------------------------
--->
-
-<table  border='1' cellspacing='0' cellpadding='2'>
-  
-<tr>
-<th class='yellow' id='3.1'>3.1 - Importing a delimited text file into a SQLite database <span><a href='#top'>(top)</a></span></th>
-</tr>
-
-<tr>
-<td>
 Open a SQLite database and run the following import command<br>
-(replace example parameter values with your own values)
+<br>
+( remove optional parameters or replace sample parameter values with your own values as appropriate )<br>
+<br>
+
 
 <pre>
 import
@@ -346,8 +256,6 @@ field1,field2
 </tr>
 
 </table> 
-
-
 
     
 </body>
