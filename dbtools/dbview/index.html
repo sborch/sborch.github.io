@@ -1,0 +1,238 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+
+     <style type="text/css">
+          h1        {font-family:verdana,sans-serif; font-size:16pt}
+          h2        {font-family:verdana,sans-serif; font-size:14pt}
+          h3        {font-family:verdana,sans-serif; font-size:12pt}
+
+          body      {font-family:verdana,sans-serif; font-size:10pt}
+
+          table,th,td  {border:1px solid black;border-collapse: collapse;}
+
+
+          table     {font-family:verdana,sans-serif; font-size:10pt;}
+
+          th        {background:whitesmoke}
+
+          th, td    {padding:4px;vertical-align: top;text-align: left;}
+  
+ 
+          code      {font-family:consolas,courier,monospace; color:teal; font-size:10pt}      
+
+          a:link    {color:blue; text-decoration:underline}
+          a:visited {color:blue; text-decoration:underline}
+          a:active  {color:blue; text-decoration:underline}
+          a:hover   {color:blue; text-decoration:underline; background:yellow; }
+     </style>
+
+
+</head>
+<body>
+
+
+     <div style="margin:25px;">
+          <h1>dbView</h1>
+          <div>
+
+<h2 id="overview">Overview</h2>
+
+<p>dbView is a query and analysis tool that is intended provide a consistent environment in which to work with different types of databases.</p>
+
+<p>I created and maintain dbView to support my day-to-day work and for this reason dbView is continually evolving and changing as my needs change.</p>
+
+<p>Please see me with any questions and/or for an overview of dbView capabilities.</p>
+
+<p>Thanks, Steve Borcherding</p>
+
+<h2 id="sqlite-database-library">SQLite database library</h2>
+
+<p>I rely heavily on SQLite (<a target='_blank' href='http://www.sqlite.org'>SQLite Home Page</a>) as a versatile database engine for much of the underpinnings of dbView and my related data-related tools. SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.</p>
+
+<p>Note that SQLite uses dynamic typing rather than the static typing we are used to with SQL Server and other traditional RDBMS engines.<br />
+It’s a bit different but very flexible and can be especially useful for working with text files and ad-hoc data analysis across multiple data sources.
+For this reason you should review the SQLite documentation on datatypes at <a target='_blank' href='https://www.sqlite.org/datatype3.html'>Datatypes In SQLite</a>.</p>
+
+<p>Also if you are interested, I use an ADO.NET provider for SQLite called <a target='_blank' href='http://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki'>System.Data.SQLite</a>.  This library allows for easy integration of SQLite functionality into a .NET application.</p>
+
+<h3 id="important-note-connecting-to-sqlite-databases">Important Note - Connecting to SQLite Databases</h3>
+
+<p>If you want the connection to fail if the specified database file does <em>NOT</em> exist, then set <code>FailIfMissing=True</code></p>
+
+<pre><code>SQLITE:
+;Data Source=&quot;C:\Temp\MyDatabase.db&quot;
+;Foreign Keys=True
+;Read Only=False
+;FailIfMissing=True
+</code></pre>
+
+<p>Otherwise if you want the connection to always succeed, then set <code>FailIfMissing=False</code>.
+This will cause a new empty SQLite database file to be automatically created if the specified file does not already exist.</p>
+
+<pre><code>SQLITE:
+;Data Source=&quot;C:\Temp\MyDatabase.db&quot;
+;Foreign Keys=True
+;Read Only=False
+;FailIfMissing=False
+</code></pre>
+
+<h2 id="importing-a-delimited-text-file-into-a-sqlite-database">Importing a delimited text file into a SQLite database</h2>
+
+<p>Open a SQLite database and run the following import command
+(replace example parameter values with your own values)</p>
+
+<pre><code>import
+	src_type                       = 'text_delimited'
+	src_file                       = 'REPLACE_ME_source_text_file'
+
+	src_file_field_separator       = 'tab'
+	src_file_text_qualifier        = 'none'
+
+	src_file_header_rows           = 1
+	src_file_max_rows              = 10
+
+	src_file_field_list            = 'field1:int'
+	                                ,'field2:varchar(50)'
+	                                ,'field3:datetime'
+
+	src_file_field_load_list       = 'field1'
+	                                ,'field3'
+
+	src_file_null_text             = 'NULL'
+	src_file_trim_char_values      = 'true'
+	src_datetime_format            = 'yyyy-MM-dd HH:mm:ss.fff'
+	src_file_ignore_empty_lines    = 'true'
+	src_file_ignore_lines_matching = '^\(\d+ row\(s\) affected\)$'
+	src_file_ignore_ssms_sql_block = 'true'
+
+	tgt_table                      = 'REPLACE_ME_target_table_name'
+	tgt_exists_action              = 'fail'
+;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">parameters</th>
+<th align="left">type</th>
+<th align="left">required</th>
+<th align="left">description/notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>src_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">set to <code>'text_delimited'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">fully pathed name of the delimited file to read</td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_text_qualifier</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">the character used to specify where a text value begins and ends.<br>valid values are: <code>'none'</code>, <code>'single-quote'</code>, <code>'double-quote'</code>.<br>(default is <code>'none'</code> if not defined)</td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_header_rows</code></td>
+<td align="left">integer.</td>
+<td align="left">optional</td>
+<td align="left">the number of initial (header) rows to skip in the file.<br><br>set to a value of 1 if the first row in the file contains the field names. see additional notes under <code>src_file_field_list</code> for more detail on defining field names and datatypes.<br></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_max_rows</code></td>
+<td align="left">integer</td>
+<td align="left">optional</td>
+<td align="left">maximum number of data rows to import from source text file (default is to read all rows if not defined).<br><br>note - this is primarily intended for testing and/or partial loads of very large files</td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_field_list</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">list of field names and datatypes in a comma-delimited format<br><br><em>for example</em><br><br><code>src_file_field_list = 'field1:int', 'field2:varchar(50)', 'field3:datetime', '...'</code><br><br><strong>IMPORTANT NOTE</strong> - please refer to SQLite documentation <a href="https://www.sqlite.org/datatype3.html">SQlite Datatypes</a> for a detailed explanation of how SQLite defines and implements dynamic typing. it is different and more flexible than the static typing used by more traditional RDBMS.<br><br><em>additional notes</em><br><br>1.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 0</code> then field names will be automatically generated as <code>'field1:text', 'field2:text', 'field3:text', ... etc.</code><br><br>2.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 1</code> then the first row of the file will be used to define the field names with a datatype of text</td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_field_load_list</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_null_text</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">string value that represents database null values in the source file.<br><br>For example, text files exported from SQL Server will often have database null values set to the literal string <code>'NULL'</code>, so to load them as database null values in SQLite set <code>src_file_null_text = 'NULL'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_trim_char_values</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left"><code>'true'</code> or <code>'false'</code> (default is <code>'true'</code> if not defined)<br><br>determines whether leading and trailing whitespace is trimmed from values when loading values from delimited text files into character fields. setting this value to false can be useful when profiling data files.<br><br><em>for example:</em> the string <code>'Apple  '</code> with trailing spaces trims to <code>'Apple'</code>with no trailing spaces<br><br></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_datetime_format</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_ignore_empty_lines</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">determines whether or not empty lines are ignored by the load.<br><br>valid values are <code>'true'</code> or<code>'false'</code>  (default is <code>'false'</code> if not defined).<br><br>n.b. normally the empty lines will cause the load to fail, so you may need to set this to <code>'true'</code> if you are loading source files generated from sql server management studio which often have an empty line at the end of the file.</td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_ignore_lines_matching</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">regular expression pattern for lines to ignore<br><br><em>for example</em><br>to ignore lines like: <code>(123 row(s) affected)</code><br><br>set <code>src_file_ignore_lines_matching = '^\(\d+ row\(s\) affected\)$'</code><br><br></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file_ignore_ssms_sql_block</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_table</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">name of table into which data should be loaded</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_exists_action</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">action to take if the specified target table already exists<br>valid values are <code>'replace'</code> or <code>'fail'</code> (default is <code>'fail'</code> if not defined)</td>
+</tr>
+</tbody>
+</table>
+</div>
+     </div>
+
+</body>
+</html>
