@@ -13,10 +13,10 @@
     
     <item>
       <title>dbView - 00 - Overview</title>
-      <link>http://example.org/dbtools/dbview_00_overview/</link>
+      <link>http://example.org/dbview_00_overview/</link>
       <pubDate>Sun, 12 Aug 2018 14:37:17 -0500</pubDate>
       
-      <guid>http://example.org/dbtools/dbview_00_overview/</guid>
+      <guid>http://example.org/dbview_00_overview/</guid>
       <description>Overview dbView is a query and analysis tool that is intended provide a consistent environment in which to work with different types of databases.
 I created and maintain dbView to support my day-to-day work and for this reason dbView is continually evolving and changing as my needs change.
 Please see me with any questions and/or for an overview of dbView capabilities.
@@ -26,10 +26,10 @@ SQLite database library I rely heavily on SQLite (SQLite Home Page) as a versati
     
     <item>
       <title>dbView - 01 - Import Delimited Text to SQlite</title>
-      <link>http://example.org/dbtools/dbview_01_delim_text_to_sqlite/</link>
+      <link>http://example.org/dbview_01_delim_text_to_sqlite/</link>
       <pubDate>Sun, 12 Aug 2018 14:37:17 -0500</pubDate>
       
-      <guid>http://example.org/dbtools/dbview_01_delim_text_to_sqlite/</guid>
+      <guid>http://example.org/dbview_01_delim_text_to_sqlite/</guid>
       <description>Importing a delimited text file into a SQLite database Open a SQLite database and run the following import command (replace example parameter values with your own values)
 import src_type = &#39;text_delimited&#39; src_file = &#39;REPLACE_ME_source_text_file&#39; src_file_field_separator = &#39;tab&#39; src_file_text_qualifier = &#39;none&#39; src_file_header_rows = 1 src_file_max_rows = 10 src_file_field_list = &#39;field1:int&#39; ,&#39;field2:varchar(50)&#39; ,&#39;field3:datetime&#39; src_file_field_load_list = &#39;field1&#39; ,&#39;field3&#39; src_file_null_text = &#39;NULL&#39; src_file_trim_char_values = &#39;true&#39; src_datetime_format = &#39;yyyy-MM-dd HH:mm:ss.fff&#39; src_file_ignore_empty_lines = &#39;true&#39; src_file_ignore_lines_matching = &#39;^\(\d+ row\(s\) affected\)$&#39; src_file_ignore_ssms_sql_block = &#39;true&#39; tgt_table = &#39;REPLACE_ME_target_table_name&#39; tgt_exists_action = &#39;fail&#39; ;     parameters type required description/notes     src_type string required set to &#39;text_delimited&#39;   src_file string required fully pathed name of the delimited file to read   src_file_text_qualifier string optional the character used to specify where a text value begins and ends.</description>
     </item>
