@@ -20,9 +20,9 @@
           th        {background:whitesmoke}
 
           th, td    {padding:4px;vertical-align: top;text-align: left;}
-  
- 
-          code      {font-family:consolas,courier,monospace; color:teal; font-size:10pt}      
+
+
+          code      {font-family:consolas,courier,monospace; color:teal; font-size:10pt}
 
           a:link    {color:blue; text-decoration:underline}
           a:visited {color:blue; text-decoration:underline}
@@ -34,51 +34,14 @@
 </head>
 <body>
 
+     <div style="text-align: center; height: 75px; padding:1px;   text-transform:capitalize; background-color:#42a5f5; color:white">
+     <h1 style="margin-bottom:-10px; "><a style="text-decoration: none; color:white;"href="/">Single Template - page</a></h1>
+</div>
+
 
      <div style="margin:25px;">
-          <h1>dbView</h1>
+          <h1>dbView - 01 - Import Delimited Text to SQlite</h1>
           <div>
-
-<h2 id="overview">Overview</h2>
-
-<p>dbView is a query and analysis tool that is intended provide a consistent environment in which to work with different types of databases.</p>
-
-<p>I created and maintain dbView to support my day-to-day work and for this reason dbView is continually evolving and changing as my needs change.</p>
-
-<p>Please see me with any questions and/or for an overview of dbView capabilities.</p>
-
-<p>Thanks, Steve Borcherding</p>
-
-<h2 id="sqlite-database-library">SQLite database library</h2>
-
-<p>I rely heavily on SQLite (<a target='_blank' href='http://www.sqlite.org'>SQLite Home Page</a>) as a versatile database engine for much of the underpinnings of dbView and my related data-related tools. SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.</p>
-
-<p>Note that SQLite uses dynamic typing rather than the static typing we are used to with SQL Server and other traditional RDBMS engines.<br />
-It’s a bit different but very flexible and can be especially useful for working with text files and ad-hoc data analysis across multiple data sources.
-For this reason you should review the SQLite documentation on datatypes at <a target='_blank' href='https://www.sqlite.org/datatype3.html'>Datatypes In SQLite</a>.</p>
-
-<p>Also if you are interested, I use an ADO.NET provider for SQLite called <a target='_blank' href='http://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki'>System.Data.SQLite</a>.  This library allows for easy integration of SQLite functionality into a .NET application.</p>
-
-<h3 id="important-note-connecting-to-sqlite-databases">Important Note - Connecting to SQLite Databases</h3>
-
-<p>If you want the connection to fail if the specified database file does <em>NOT</em> exist, then set <code>FailIfMissing=True</code></p>
-
-<pre><code>SQLITE:
-;Data Source=&quot;C:\Temp\MyDatabase.db&quot;
-;Foreign Keys=True
-;Read Only=False
-;FailIfMissing=True
-</code></pre>
-
-<p>Otherwise if you want the connection to always succeed, then set <code>FailIfMissing=False</code>.
-This will cause a new empty SQLite database file to be automatically created if the specified file does not already exist.</p>
-
-<pre><code>SQLITE:
-;Data Source=&quot;C:\Temp\MyDatabase.db&quot;
-;Foreign Keys=True
-;Read Only=False
-;FailIfMissing=False
-</code></pre>
 
 <h2 id="importing-a-delimited-text-file-into-a-sqlite-database">Importing a delimited text file into a SQLite database</h2>
 
@@ -148,7 +111,7 @@ This will cause a new empty SQLite database file to be automatically created if 
 
 <tr>
 <td align="left"><code>src_file_header_rows</code></td>
-<td align="left">integer.</td>
+<td align="left">integer</td>
 <td align="left">optional</td>
 <td align="left">the number of initial (header) rows to skip in the file.<br><br>set to a value of 1 if the first row in the file contains the field names. see additional notes under <code>src_file_field_list</code> for more detail on defining field names and datatypes.<br></td>
 </tr>
@@ -233,6 +196,12 @@ This will cause a new empty SQLite database file to be automatically created if 
 </table>
 </div>
      </div>
+
+     <div style="height:35px;"></div>
+<div style=" position:fixed; color: white; height:35px; background-color:#757575; bottom:0px; text-align:center; width:99%">
+     <p style="margin:10px; "><a style="color: white; " target="_blank" href="http://www.giraffeacademy.com/">Giraffe Academy</a> - Hugo Theme</p>
+</div>
+
 
 </body>
 </html>
