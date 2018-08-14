@@ -3,34 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/dbtools/dbview_00_overview/</loc>
+    <loc>https://steveborcherding.com/dbtools/dbcompare/dbcompare_00_overview/</loc>
+    <lastmod>2018-08-14T05:31:27-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbprofile/dbprofile_00_overview/</loc>
+    <lastmod>2018-08-14T05:31:12-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/</loc>
+    <lastmod>2018-08-13T20:28:50-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_00_overview/</loc>
     <lastmod>2018-08-12T14:37:17-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/dbtools/dbview_01_delim_text_to_sqlite/</loc>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_01_delim_text_to_sqlite/</loc>
     <lastmod>2018-08-12T14:37:17-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://steveborcherding.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/dbtools/</loc>
-    <lastmod>2018-08-12T14:37:17-05:00</lastmod>
+    <loc>https://steveborcherding.com/dbtools/</loc>
+    <lastmod>2018-08-14T05:31:27-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2018-08-12T14:37:17-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://steveborcherding.com/tags/</loc>
     <priority>0</priority>
   </url>
   
