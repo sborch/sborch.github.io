@@ -4,6 +4,8 @@ h3        {font-family:verdana,sans-serif; font-size:12pt}
 
 body      {font-family:verdana,sans-serif; font-size:10pt}
 
+img       {max-width:100%;height:auto;}
+
 table,th,td  {border:1px solid black;border-collapse: collapse;}
 
 table     {font-family:verdana,sans-serif; font-size:10pt;}
