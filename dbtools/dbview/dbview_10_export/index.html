@@ -1,0 +1,183 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+
+     <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+     <div style="
+    text-align: center
+  ; height: 75px
+  ; padding-top: 1px
+  ; padding-bottom: 5px
+  ; background-color: gainsboro
+  ; width:100%">
+
+  <h2>Steve Borcherding</h2>
+  <nav class="header-menu"><ul>
+
+<a href="/">Home</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbview/">dbView</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbcompare/">dbCompare</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbprofile/">dbProfile</a>&nbsp;&nbsp;
+
+</ul>
+</nav>
+
+</div>
+
+
+     <div style="margin:25px;">
+          <div>
+
+<h2 id="exporting-data">Exporting Data</h2>
+
+<p>Open any supported database and run one of the following export command
+(replace example parameter values with your own values)</p>
+
+<p><br></p>
+
+<h3 id="option-1-exporting-to-delimited-text-file">Option 1 - Exporting to Delimited Text File</h3>
+
+<pre><code>export
+
+  tgt_type                 = 'text_delimited'
+  tgt_file                 = 'REPLACE_ME_Target_File_Name'
+
+  tgt_file_field_separator = 'tab'
+  tgt_file_text_qualifier  = 'none'
+  tgt_datetime_format      = 'yyyy-MM-dd HH:mm:ss.fff'
+
+select * from dbo.Table1;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">parameters</th>
+<th align="left">type</th>
+<th align="left">required</th>
+<th align="left">description/notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>tgt_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">valid values are <code>'text_delimited'</code> or <code>'sql_script'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_file</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">fully pathed name of the target file</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_file_field_separator</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">must be either <code>‘tab’</code> or a single character<br><br>e.g. <code>','</code> or <code>';'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_file_text_qualifier</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">the character used to specify where a text value begins and ends.<br><br>valid values are: <code>'none'</code>, <code>'single-quote'</code>, <code>'double-quote'</code>.<br><br>default is <code>'none'</code> if not defined</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_datetime_format</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">.NET datetime format string to use when writing datetime values to file<br><br>default value is <code>'yyyy-MM-dd HH:mm:ss.fff'</code> if not defined</td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<h3 id="option-2-exporting-to-sql-insert-script">Option 2 - Exporting to SQL Insert Script</h3>
+
+<pre><code>export
+
+  tgt_type                 = 'sql_script'
+  tgt_file                 = 'REPLACE_ME_Target_File_Name'
+
+  tgt_table                = 'dbo.MyNewTable'
+  tgt_include_field_names  = 'true'
+
+select * from dbo.Table1;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">parameters</th>
+<th align="left">type</th>
+<th align="left">required</th>
+<th align="left">description/notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>tgt_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">valid values are <code>'text_delimited'</code> or <code>'sql_script'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_file</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">fully pathed name of the target file</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_table</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">name of table to use in sql insert statements</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_include_field_names</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">‘true’ or ‘false’<br><br>defines whether a field name list is built for the insert sql statements.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;i.e. <code>insert into &lt;table&gt; (f1, f2, f3) values (v1,v2,v3)</code><br><br>no field name list means that the file will be smaller but the inserts will then depend on the same field order in the target table.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;i.e. <code>insert into &lt;table&gt; values (v1,v2,v3)</code><br><br>default value is <code>‘true’</code> if not defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+     </div>
+
+     <div style="height:35px;"></div>
+
+<div style="
+    height:35px
+  ; background-color:gainsboro
+  ; text-align:center
+  ; padding-top: 15px
+  ; width:100%">
+
+  {footer text goes here}
+
+</div>
+
+
+</body>
+</html>

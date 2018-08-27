@@ -1,0 +1,135 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+
+     <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+     <div style="
+    text-align: center
+  ; height: 75px
+  ; padding-top: 1px
+  ; padding-bottom: 5px
+  ; background-color: gainsboro
+  ; width:100%">
+
+  <h2>Steve Borcherding</h2>
+  <nav class="header-menu"><ul>
+
+<a href="/">Home</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbview/">dbView</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbcompare/">dbCompare</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbprofile/">dbProfile</a>&nbsp;&nbsp;
+
+</ul>
+</nav>
+
+</div>
+
+
+     <div style="margin:25px;">
+          <div>
+
+<h2 id="importing-bulk-load-sqlite-data-into-a-sql-server-database">Importing (Bulk Load) SQLite data into a SQL Server database</h2>
+
+<p>Open a SQL Server database and run the following import command
+(replace example parameter values with your own values)</p>
+
+<pre><code>import
+
+    src_type            = 'sqlite'
+    src_file            = 'REPLACE_ME_SQLite_File_Name'
+
+    tgt_table           = 'dbo.REPLACE_ME_SQL_Server_Target_Table_1'
+    tgt_load_type       = 'bulk_load'
+    tgt_truncate        = 'cmg_truncate'
+    tgt_commit_interval =  10000
+
+select * from SQLite_Source_Table_1;
+</code></pre>
+
+<p>Note 1 - <em>field order</em>, <em>field names</em> and <em>field datatypes</em> <strong>MUST</strong> match between the source query and the target table.</p>
+
+<p>Note 2 - bulk load is invoked with the CheckConstraints option which means that constraints are checked and enforced during the load.  Please see Steve Borcherding for questions or if you need different and/or other options available for the bulk load process.  (i.e. FireTriggers, KeepIdentity, KeepNulls, TableLock, etc.)</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">parameters</th>
+<th align="left">type</th>
+<th align="left">required</th>
+<th align="left">description/notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>src_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">set to <code>'sqlite'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">fully pathed name of the source SQLite database file</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_table</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">name of target table (with schema) in current SQL Server database into which data should be loaded</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_load_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left"><code>'bulk_load'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_truncate</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">determines whether target table data will be cleared before the bulk load begins.<br><br>default value is <code>‘none’</code> if not defined<br><br>options<br><br><code>‘no_truncate’</code><br>do nothing (i.e. don’t clear data from target table.)<br><br><code>‘cmg_truncate’</code><br>execute cmg-specific DBA stored procedure master.dbo.usp_DBS_TableTruncate on target table.<br><br><code>‘sql_truncate’</code><br>execute native sql truncate table command on target table.<br><br><code>‘sql_delete’</code><br>execute native sql delete command on target table.</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_commit_interval</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">defines the batch size will be used for bulk inserts into to SQL Server database.<br><br>default value is 10000 if not defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+     </div>
+
+     <div style="height:35px;"></div>
+
+<div style="
+    height:35px
+  ; background-color:gainsboro
+  ; text-align:center
+  ; padding-top: 15px
+  ; width:100%">
+
+  {footer text goes here}
+
+</div>
+
+
+</body>
+</html>

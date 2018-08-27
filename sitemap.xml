@@ -8,8 +8,28 @@
   </url>
   
   <url>
-    <loc>https://steveborcherding.com/dbtools/dbview/dbview_01_delim_text_to_sqlite/</loc>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_01_import_delim_text_to_sqlite/</loc>
     <lastmod>2018-08-12T14:37:17-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_02_import_sqlserver_to_sqlite/</loc>
+    <lastmod>2018-08-26T14:37:17-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_03_import_sqllte_to_sqlite/</loc>
+    <lastmod>2018-08-26T14:37:17-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_04_import_sqlite_to_sqlserver/</loc>
+    <lastmod>2018-08-26T14:37:17-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://steveborcherding.com/dbtools/dbview/dbview_10_export/</loc>
+    <lastmod>2018-08-26T14:37:17-05:00</lastmod>
   </url>
   
   <url>

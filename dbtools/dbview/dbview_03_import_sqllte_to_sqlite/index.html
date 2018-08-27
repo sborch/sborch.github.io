@@ -1,0 +1,116 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+
+     <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+     <div style="
+    text-align: center
+  ; height: 75px
+  ; padding-top: 1px
+  ; padding-bottom: 5px
+  ; background-color: gainsboro
+  ; width:100%">
+
+  <h2>Steve Borcherding</h2>
+  <nav class="header-menu"><ul>
+
+<a href="/">Home</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbview/">dbView</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbcompare/">dbCompare</a>&nbsp;&nbsp;
+
+<a href="/dbtools/dbprofile/">dbProfile</a>&nbsp;&nbsp;
+
+</ul>
+</nav>
+
+</div>
+
+
+     <div style="margin:25px;">
+          <div>
+
+<h2 id="importing-sqlite-data-into-a-sqlite-database">Importing SQLite data into a SQLite database</h2>
+
+<p>Open a SQLite database and run the following import command
+(replace example parameter values with your own values)</p>
+
+<pre><code>import
+
+  src_type           = 'sqlite'
+  src_file           = 'REPLACE_ME_SQLite_Database_File_Name'
+
+  tgt_table          = 'REPLACE_ME_target_table_name'
+  tgt_exists_action  = 'fail'
+
+select * from Table1
+;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">parameters</th>
+<th align="left">type</th>
+<th align="left">required</th>
+<th align="left">description/notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>src_type</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">set to <code>'sqlite'</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>src_file</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">fully pathed name of the source SQLite database file</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_table</code></td>
+<td align="left">string</td>
+<td align="left">required</td>
+<td align="left">name of target table in current SQLite database into which data should be loaded</td>
+</tr>
+
+<tr>
+<td align="left"><code>tgt_exists_action</code></td>
+<td align="left">string</td>
+<td align="left">optional</td>
+<td align="left">action to take if the specified target table already exists<br>valid values are <code>'replace'</code> or <code>'fail'</code><br><br>default is <code>'fail'</code> if not defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+     </div>
+
+     <div style="height:35px;"></div>
+
+<div style="
+    height:35px
+  ; background-color:gainsboro
+  ; text-align:center
+  ; padding-top: 15px
+  ; width:100%">
+
+  {footer text goes here}
+
+</div>
+
+
+</body>
+</html>

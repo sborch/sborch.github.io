@@ -26,12 +26,53 @@ SQLite database library I rely heavily on SQLite (SQLite Home Page) as a versati
     
     <item>
       <title>dbView - Import Delimited Text to SQlite</title>
-      <link>https://steveborcherding.com/dbtools/dbview/dbview_01_delim_text_to_sqlite/</link>
+      <link>https://steveborcherding.com/dbtools/dbview/dbview_01_import_delim_text_to_sqlite/</link>
       <pubDate>Sun, 12 Aug 2018 14:37:17 -0500</pubDate>
       
-      <guid>https://steveborcherding.com/dbtools/dbview/dbview_01_delim_text_to_sqlite/</guid>
+      <guid>https://steveborcherding.com/dbtools/dbview/dbview_01_import_delim_text_to_sqlite/</guid>
       <description>Importing a delimited text file into a SQLite database Open a SQLite database and run the following import command (replace example parameter values with your own values)
-import src_type = &#39;text_delimited&#39; src_file = &#39;REPLACE_ME_source_text_file&#39; src_file_field_separator = &#39;tab&#39; src_file_text_qualifier = &#39;none&#39; src_file_header_rows = 1 src_file_max_rows = 10 src_file_field_list = &#39;field1:int&#39; ,&#39;field2:varchar(50)&#39; ,&#39;field3:datetime&#39; src_file_field_load_list = &#39;field1&#39; ,&#39;field3&#39; src_file_null_text = &#39;NULL&#39; src_file_trim_char_values = &#39;true&#39; src_datetime_format = &#39;yyyy-MM-dd HH:mm:ss.fff&#39; src_file_ignore_empty_lines = &#39;true&#39; src_file_ignore_lines_matching = &#39;^\(\d+ row\(s\) affected\)$&#39; src_file_ignore_ssms_sql_block = &#39;true&#39; tgt_table = &#39;REPLACE_ME_target_table_name&#39; tgt_exists_action = &#39;fail&#39; ;     parameters type required description/notes     src_type string required set to &#39;text_delimited&#39;   src_file string required fully pathed name of the delimited file to read   src_file_text_qualifier string optional the character used to specify where a text value begins and ends.</description>
+import src_type = &#39;text_delimited&#39; src_file = &#39;REPLACE_ME_source_text_file&#39; src_file_field_separator = &#39;tab&#39; src_file_text_qualifier = &#39;none&#39; src_file_header_rows = 1 src_file_max_rows = 10 src_file_field_list = &#39;field1:int&#39; ,&#39;field2:varchar(50)&#39; ,&#39;field3:datetime&#39; src_file_field_load_list = &#39;field1&#39; ,&#39;field3&#39; src_file_null_text = &#39;NULL&#39; src_file_trim_char_values = &#39;true&#39; src_datetime_format = &#39;yyyy-MM-dd HH:mm:ss.fff&#39; src_file_ignore_empty_lines = &#39;true&#39; src_file_ignore_lines_matching = &#39;^\(\d+ row\(s\) affected\)$&#39; src_file_ignore_ssms_sql_block = &#39;true&#39; tgt_table = &#39;REPLACE_ME_target_table_name&#39; tgt_exists_action = &#39;fail&#39; ;     parameters type required description/notes     src_type string required set to &#39;text_delimited&#39;   src_file string required fully pathed name of the delimited file to read   src_file_field_separator string required must be either ‘tab’ or a single character</description>
+    </item>
+    
+    <item>
+      <title>dbView - Import SQL Server to SQlite</title>
+      <link>https://steveborcherding.com/dbtools/dbview/dbview_02_import_sqlserver_to_sqlite/</link>
+      <pubDate>Sun, 26 Aug 2018 14:37:17 -0500</pubDate>
+      
+      <guid>https://steveborcherding.com/dbtools/dbview/dbview_02_import_sqlserver_to_sqlite/</guid>
+      <description>Importing SQL Server data into a SQLite database Open a SQLite database and run the following import command (replace example parameter values with your own values)
+import src_type = &#39;sqlserver&#39; src_server = &#39;REPLACE_ME_SQL_ServerName_Instance&#39; src_database = &#39;REPLACE_ME_SQL_Database&#39; tgt_table = &#39;REPLACE_ME_target_table_name&#39; tgt_exists_action = &#39;fail&#39; select * from dbo.Table1 ;     parameters type required description/notes     src_type string required set to &#39;sqlserver&#39;   src_server string required name of source SQL Server (and instance if needed)</description>
+    </item>
+    
+    <item>
+      <title>dbView - Import SQLite to SQlite</title>
+      <link>https://steveborcherding.com/dbtools/dbview/dbview_03_import_sqllte_to_sqlite/</link>
+      <pubDate>Sun, 26 Aug 2018 14:37:17 -0500</pubDate>
+      
+      <guid>https://steveborcherding.com/dbtools/dbview/dbview_03_import_sqllte_to_sqlite/</guid>
+      <description>Importing SQLite data into a SQLite database Open a SQLite database and run the following import command (replace example parameter values with your own values)
+import src_type = &#39;sqlite&#39; src_file = &#39;REPLACE_ME_SQLite_Database_File_Name&#39; tgt_table = &#39;REPLACE_ME_target_table_name&#39; tgt_exists_action = &#39;fail&#39; select * from Table1 ;     parameters type required description/notes     src_type string required set to &#39;sqlite&#39;   src_file string required fully pathed name of the source SQLite database file   tgt_table string required name of target table in current SQLite database into which data should be loaded   tgt_exists_action string optional action to take if the specified target table already exists</description>
+    </item>
+    
+    <item>
+      <title>dbView - Import (bulk load) SQLite to SQL Server</title>
+      <link>https://steveborcherding.com/dbtools/dbview/dbview_04_import_sqlite_to_sqlserver/</link>
+      <pubDate>Sun, 26 Aug 2018 14:37:17 -0500</pubDate>
+      
+      <guid>https://steveborcherding.com/dbtools/dbview/dbview_04_import_sqlite_to_sqlserver/</guid>
+      <description>Importing (Bulk Load) SQLite data into a SQL Server database Open a SQL Server database and run the following import command (replace example parameter values with your own values)
+import src_type = &#39;sqlite&#39; src_file = &#39;REPLACE_ME_SQLite_File_Name&#39; tgt_table = &#39;dbo.REPLACE_ME_SQL_Server_Target_Table_1&#39; tgt_load_type = &#39;bulk_load&#39; tgt_truncate = &#39;cmg_truncate&#39; tgt_commit_interval = 10000 select * from SQLite_Source_Table_1;  Note 1 - field order, field names and field datatypes MUST match between the source query and the target table.</description>
+    </item>
+    
+    <item>
+      <title>dbView - Exporting Data</title>
+      <link>https://steveborcherding.com/dbtools/dbview/dbview_10_export/</link>
+      <pubDate>Sun, 26 Aug 2018 14:37:17 -0500</pubDate>
+      
+      <guid>https://steveborcherding.com/dbtools/dbview/dbview_10_export/</guid>
+      <description>Exporting Data Open any supported database and run one of the following export command (replace example parameter values with your own values)
+
+Option 1 - Exporting to Delimited Text File export tgt_type = &#39;text_delimited&#39; tgt_file = &#39;REPLACE_ME_Target_File_Name&#39; tgt_file_field_separator = &#39;tab&#39; tgt_file_text_qualifier = &#39;none&#39; tgt_datetime_format = &#39;yyyy-MM-dd HH:mm:ss.fff&#39; select * from dbo.Table1;     parameters type required description/notes     tgt_type string required valid values are &#39;text_delimited&#39; or &#39;sql_script&#39;   tgt_file string required fully pathed name of the target file   tgt_file_field_separator string required must be either ‘tab’ or a single character</description>
     </item>
     
     <item>
