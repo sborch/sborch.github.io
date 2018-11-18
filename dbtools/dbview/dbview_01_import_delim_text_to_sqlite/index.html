@@ -54,9 +54,11 @@
 	src_file_header_rows           = 1
 	src_file_max_rows              = 10
 
-	src_file_field_list            = 'field1:int'
-	                                ,'field2:varchar(50)'
-	                                ,'field3:datetime'
+'name=value;type=value;start=value;length=value;dateformat=value;nulls=true|false;nullvalue=value'
+
+	src_file_field_list            = 'name=field1 ; type=int          ; nulls=false'
+	                                ,'name=field2 ; type=varchar(50)'
+	                                ,'name=field3 ; type=datetime     ; dateformat=yyyyMMdd'
 
 	src_file_field_load_list       = 'field1'
 	                                ,'field3'
@@ -130,7 +132,7 @@
 <td align="left"><code>src_file_field_list</code></td>
 <td align="left">string</td>
 <td align="left">optional</td>
-<td align="left">list of field names and datatypes in a comma-delimited format<br><br><em>for example</em><br><br><code>src_file_field_list = 'field1:int', 'field2:varchar(50)', 'field3:datetime', '...'</code><br><br><strong>IMPORTANT NOTE</strong> - please refer to SQLite documentation <a href="https://www.sqlite.org/datatype3.html">SQlite Datatypes</a> for a detailed explanation of how SQLite defines and implements dynamic typing. it is different and more flexible than the static typing used by more traditional RDBMS.<br><br><em>additional notes</em><br><br>1.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 0</code> then field names will be automatically generated as <code>'field1:text', 'field2:text', 'field3:text', ... etc.</code><br><br>2.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 1</code> then the first row of the file will be used to define the field names with a datatype of text</td>
+<td align="left">list of field definitions in a comma-delimited format<br><br><em>for example</em><br><br><code>src_file_field_list = 'name=field1 ; type=int ; nulls=false', 'name=field2 ; type=varchar(50)', 'name=field3 ; type=datetime ; dateformat=yyyyMMdd', '...'</code><br><br><strong>IMPORTANT NOTE</strong> - please refer to SQLite documentation <a href="https://www.sqlite.org/datatype3.html">SQlite Datatypes</a> for a detailed explanation of how SQLite defines and implements dynamic typing. it is different and more flexible than the static typing used by more traditional RDBMS.<br><br><em>additional notes</em><br><br>1.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 0</code> then field names will be automatically generated as <code>'name=field1 ; type=text', 'name=field2 ; type=text', 'name=field3 ; type=text', ... etc.</code><br><br>2.  if <code>src_file_field_list</code> is not defined and <code>src_file_header_rows = 1</code> then the first  row of the file will be used to define the field names with a datatype of text</td>
 </tr>
 
 <tr>
